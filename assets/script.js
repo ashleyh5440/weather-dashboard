@@ -3,4 +3,8 @@
 //need function to get api
 //need to add searched cities to local storage + the page
 
+const input = document.getElementById("floatingInput");
+const searchBtn = document.getElementById("searchBtn");
+const searchResults = document.getElementById("searchResults");
+const fiveDay = document.getElementById("fiveDay");
 
