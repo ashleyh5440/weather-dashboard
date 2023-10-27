@@ -8,3 +8,13 @@ const searchBtn = document.getElementById("searchBtn");
 const searchResults = document.getElementById("searchResults");
 const fiveDay = document.getElementById("fiveDay");
 
+//seach button
+searchBtn.addEventListener("click", {
+    let cityName = input.value.trim();
+    if (cityName === "") {
+        alert("Please enter a city");
+    } else {
+        getWeatherData(cityName);
+    }
+});
+console.log(cityName);
