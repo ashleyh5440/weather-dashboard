@@ -1,0 +1,32 @@
+<!-- GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city -->
+
+<!-- need a form to type in a city
+    needs to show history of what was typed (buttons)
+display box to current city and temp
+2nd display box for 5 day forcast -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <main>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Please select a city</label>
+          </div>
+    </main>
+</body>
+</html>
