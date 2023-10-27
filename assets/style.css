@@ -5,13 +5,17 @@ main {
 }
 
 .search-container {
-    width: 40%;
+    width: 35%;
     border: 5px solid red;
-    margin: 2%;
+    margin-left: 2%;
 }
 
 .results-container {
-    width: 60%;
+    width: 58%;
     border: 5px solid blue;
-    margin: 2%;
+    margin-left: 2%;
+}
+
+.search-btn {
+    margin: 1%;
 }
