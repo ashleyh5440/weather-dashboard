@@ -16,6 +16,22 @@ main {
     margin-left: 2%;
 }
 
+.fiveDay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 #searchBtn {
     margin: 1%;
+}
+
+#searchResults {
+    border: 5px solid black;
+    flex-wrap: wrap;
+}
+
+#day1, #day2, #day3, #day4, #day5 {
+    border: 5px solid pink;
+    width: 17%;
 }

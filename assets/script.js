@@ -11,10 +11,15 @@ const fiveDay = document.getElementById("fiveDay");
 //seach button
 searchBtn.addEventListener("click", {
     let cityName = input.value.trim();
-    if (cityName === "") {
+    if(cityName === "") {
         alert("Please enter a city");
     } else {
         getWeatherData(cityName);
     }
 });
-console.log(cityName);
+
+//get api
+function getWeatherData
+
+//display weather data
+function displayWeatherData 
