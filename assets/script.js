@@ -9,27 +9,23 @@ const searchResults = document.getElementById("searchResults");
 const fiveDay = document.getElementById("fiveDay");
 
 //seach button
-searchBtn.addEventListener("click", getWeatherData);
+searchBtn.addEventListener("click", getWeather);
 
-//get api\
+//get api
+
+function getWeather() {
 const apiKey = "af9558435b5b700340934127adc478ab";
 const city = input.value; //chooses city based on the input
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=af9558435b5b700340934127adc478ab&units=imperial"
 
-function getWeatherData() {
-    fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-        if (data.cod === 200) {
-            displayWeatherData(data);
-        } else {
-            alert("City not found. Please check the city name.");
-        }
+fetch(apiUrl)
+    .then(function (response) {
+        return response.json();
     })
-    .catch((error) => {
-        console.error("Error fetching weather data:", error);
-        alert("An error occurred while fetching weather data.");
-    });
+    .then(function (data) {
+        console.log(data)
+        
+    })
 }
 
 //display weather data
