@@ -32,11 +32,14 @@ fetch(apiUrl)
         console.log(data)
         displayWeatherData(data);
     const {lat, lon} = data.coord //pulls the data out
-    var apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
-    fetch(apiUrlForecast).then(function (response){
+    var apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`; //for the five day forecast
+
+    fetch(apiUrlForecast)
+    .then(function (response){
         return response.json();
     }).then(function (data){
         console.log(data);
+        displayForecastData(data.list)
     })
     
     })
@@ -46,8 +49,25 @@ fetch(apiUrl)
 }
 
 //display forescast
+function displayForecastData(data){
+    for (let i = 3; i < data.length; i+=8) {
+    const temp = document.createElement("p");
+    const humidity = document.createElement("p");
+    const wind = document.createElement("p");
+    const date = document.createElement("h3");
+    const img = document.createElement("img");
+    date.textContent = dayjs.unix(data[i].dt).format("MM/DD/YYYY");
+    wind.textContent = `${data[i].wind.speed} m/h`
+    humidity.textContent = `${data[i].main.humidity} %`
+    temp.textContent = `${data[i].main.temp} °F`
+    img.src = `https://openweathermap.org/img/w/${data[i].weather[0].icon}.png`;
+    img.alt = data[i].weather[0].description
 
-function
+    const card = document.createElement("div");
+    card.append(date, img, temp, wind, humidity);
+    document.getElementById("fiveDay").append(card);
+    }
+}
 
 //display weather data
 //would it be another function or just apphend? 

@@ -16,7 +16,7 @@ main {
     margin-left: 2%;
 }
 
-.fiveDay {
+#fiveDay {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
