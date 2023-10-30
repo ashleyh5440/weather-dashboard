@@ -1,3 +1,11 @@
+header {
+    display: center;
+    /* margin-left: 10%; */
+    padding: 3%;
+    /* margin-top: 5%; */
+
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -12,7 +20,7 @@ main {
 
 .results-container {
     width: 58%;
-    border: 5px solid blue;
+    /* border: 5px solid blue; */
     margin-left: 2%;
 }
 
@@ -20,6 +28,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .col {
@@ -33,11 +42,6 @@ main {
 }
 
 #searchResults {
-    border: 5px solid black;
+    /* border: 5px solid black; */
     flex-wrap: wrap;
-}
-
-#day1, #day2, #day3, #day4, #day5 {
-    border: 5px solid pink;
-    width: 17%;
 }

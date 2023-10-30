@@ -51,11 +51,13 @@ fetch(apiUrl)
 //display forescast
 function displayForecastData(data){
     for (let i = 3; i < data.length; i+=8) {
+
     const temp = document.createElement("p");
     const humidity = document.createElement("p");
     const wind = document.createElement("p");
-    const date = document.createElement("h3");
+    const date = document.createElement("p");
     const img = document.createElement("img");
+
     date.textContent = dayjs.unix(data[i].dt).format("MM/DD/YYYY");
     wind.textContent = `${data[i].wind.speed} m/h`
     humidity.textContent = `${data[i].main.humidity} %`
@@ -70,18 +72,29 @@ function displayForecastData(data){
 }
 
 //display weather data
-//would it be another function or just apphend? 
 function displayWeatherData(data) {
     const cityNameElement = document.getElementById("city");
     const temperatureElement = document.getElementById("tempF");
     const windElement = document.getElementById("wind");
     const humidityElement = document.getElementById("humidity");
+
     cityNameElement.textContent = data.name
     temperatureElement.textContent = `${Math.round(data.main.temp)} °F`
     humidityElement.textContent = `${data.main.humidity} %`
     windElement.textContent = `${data.wind.speed} m/h`
-    const img = document.createElement("img")
+
+    const img = document.createElement("img") //weather icon
     img.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
     img.alt = data.weather[0].description
+}
+
+//saves searches to local storage
+function saveSearchHistory(city) { //(city) because that's what needs to be saved
+    const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || []
+    searchHistory.push(city); //adds city to the list
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+}
+
+function displaySearchHistory() {
 
 }
