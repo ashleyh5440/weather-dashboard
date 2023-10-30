@@ -9,14 +9,20 @@ const searchResults = document.getElementById("searchResults");
 const fiveDay = document.getElementById("fiveDay");
 
 //seach button
-searchBtn.addEventListener("click", getWeather);
+searchBtn.addEventListener("click", handleSearchSubmit);
+
+function handleSearchSubmit() {
+    const city = document.getElementById("floatingInput").value.trim(); // .trim gets rid of white space
+    if(!city) {
+        return
+    }
+    getWeather(city);
+}
 
 //get api
-
-function getWeather() {
+function getWeather(city) {
 const apiKey = "af9558435b5b700340934127adc478ab";
-const city = input.value; //chooses city based on the input
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=af9558435b5b700340934127adc478ab&units=imperial"
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=af9558435b5b700340934127adc478ab&units=imperial`
 
 fetch(apiUrl)
     .then(function (response) {
@@ -24,11 +30,38 @@ fetch(apiUrl)
     })
     .then(function (data) {
         console.log(data)
-        
+        displayWeatherData(data);
+    const {lat, lon} = data.coord //pulls the data out
+    var apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+    fetch(apiUrlForecast).then(function (response){
+        return response.json();
+    }).then(function (data){
+        console.log(data);
     })
+    
+    })
+    .catch(function (error) {
+        console.error("Error fetching weather data:", error);
+    });
 }
 
-//display weather data
-function displayWeatherData() {
+//display forescast
 
-} 
+function
+
+//display weather data
+//would it be another function or just apphend? 
+function displayWeatherData(data) {
+    const cityNameElement = document.getElementById("city");
+    const temperatureElement = document.getElementById("tempF");
+    const windElement = document.getElementById("wind");
+    const humidityElement = document.getElementById("humidity");
+    cityNameElement.textContent = data.name
+    temperatureElement.textContent = `${Math.round(data.main.temp)} °F`
+    humidityElement.textContent = `${data.main.humidity} %`
+    windElement.textContent = `${data.wind.speed} m/h`
+    const img = document.createElement("img")
+    img.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+    img.alt = data.weather[0].description
+
+}
