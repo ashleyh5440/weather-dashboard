@@ -19,12 +19,10 @@ function handleSearchSubmit() {
     }
     getWeather(city);
     var currentCities = JSON.parse(localStorage.getItem("cities")) //original
-    console.log(currentCities);
-    // currentCities.push(city);
-    city.push(currentCities)
-    console.log(currentCities);
+    cities.push(city)
+    cities.push(currentCities)
 
-    localStorage.setItem("cities", JSON.stringify(currentCities)); //original 
+    localStorage.setItem("cities", JSON.stringify(cities)); //original 
 
     displayPreviousSearch();
 }
@@ -120,20 +118,3 @@ function displayWeatherData(data) {
     img.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
     img.alt = data.weather[0].description
 }
-
-//saves searches to local storage
-// function saveSearchHistory(city) { //(city) because that's what needs to be saved
-//     localStorage.setItem("searchHistory", input.value);
-//     console.log(searchHistory);
-// }
-
-// function displaySearchHistory() {
-//     const searchHistoryList = querySelector("ul")
-//     ul.innerHTML = localStorage.getItem("searchHistory");
-// }
-
-
-
-// const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || []
-// searchHistory.push(city); //adds city to the list
-// localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
