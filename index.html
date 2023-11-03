@@ -10,8 +10,7 @@ THEN I am again presented with current and future conditions for that city -->
 
 <!-- need a form to type in a city
     needs to show history of what was typed (buttons)
-display box to current city and temp
-2nd display box for 5 day forcast -->
+display box to current city and temp -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,13 +29,13 @@ display box to current city and temp
             <section class="search-container">
                 <h2>Search for a city</h2>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="floatingInput">
                     <label for="floatingInput">Enter a city</label>
                     <button class="btn btn-primary" id="searchBtn" type="submit">Search</button>
                 </div>
                 <div class="previous-search">
                     <h4>Previous searches</h4>
-                    <ul id="searchesList"></ul>
+                    <ul id="searchHistoryList"></ul>
         </section>
         <br>
         <section class="results-container">
@@ -45,6 +44,7 @@ display box to current city and temp
             <!-- weather info for current day will display here -->
             <h2 id="tempF"></h2>
             <div class="col">
+                <!-- <div><h3 id="wind"></h3><img id="wind-icon" src="./assets/wind-speed.png"></div> -->
                 <h3 id="wind"></h3> 
                 <h3 id="humidity"><p>
             </div>

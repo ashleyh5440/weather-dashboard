@@ -7,6 +7,7 @@ const input = document.getElementById("floatingInput");
 const searchBtn = document.getElementById("searchBtn");
 const searchResults = document.getElementById("searchResults");
 const fiveDay = document.getElementById("fiveDay");
+let cities = [];
 
 //seach button
 searchBtn.addEventListener("click", handleSearchSubmit);
@@ -17,6 +18,38 @@ function handleSearchSubmit() {
         return
     }
     getWeather(city);
+    var currentCities = JSON.parse(localStorage.getItem("cities")) //original
+    console.log(currentCities);
+    // currentCities.push(city);
+    city.push(currentCities)
+    console.log(currentCities);
+
+    localStorage.setItem("cities", JSON.stringify(currentCities)); //original 
+
+    displayPreviousSearch();
+}
+
+function displayPreviousSearch() {
+    if(localStorage.getItem("cities")){
+        cities = JSON.parse(localStorage.getItem("cities"));
+        console.log(cities);
+        // var buttonEl = document.createElement("button");
+        // buttonEl.textContent = "Hello";
+        // var results = document.getElementById("searchHistoryList");
+        // results.append(buttonEl);
+        // console.log(cities);
+
+        for (let i = 0; i < cities.length; i++){ //loops through the array
+        var buttonEl = document.createElement("button");
+        buttonEl.textContent = cities[i];
+        var results = document.getElementById("searchHistoryList");
+        results.append(buttonEl);
+        console.log(cities);
+        }
+    }
+    else {
+        return;
+    }
 }
 
 //get api
@@ -89,12 +122,18 @@ function displayWeatherData(data) {
 }
 
 //saves searches to local storage
-function saveSearchHistory(city) { //(city) because that's what needs to be saved
-    const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || []
-    searchHistory.push(city); //adds city to the list
-    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-}
+// function saveSearchHistory(city) { //(city) because that's what needs to be saved
+//     localStorage.setItem("searchHistory", input.value);
+//     console.log(searchHistory);
+// }
 
-function displaySearchHistory() {
+// function displaySearchHistory() {
+//     const searchHistoryList = querySelector("ul")
+//     ul.innerHTML = localStorage.getItem("searchHistory");
+// }
 
-}
+
+
+// const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || []
+// searchHistory.push(city); //adds city to the list
+// localStorage.setItem("searchHistory", JSON.stringify(searchHistory));

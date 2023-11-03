@@ -1,9 +1,5 @@
-header {
-    display: center;
-    /* margin-left: 10%; */
-    padding: 3%;
-    /* margin-top: 5%; */
-
+body {
+    background-color: #597713;
 }
 
 main {
@@ -12,10 +8,18 @@ main {
     flex-wrap: wrap;
 }
 
+header {
+    margin-left: 35%;
+    padding: 3%;
+}
+
 .search-container {
     width: 35%;
-    border: 5px solid red;
+    background-color: #C1CFF6;
+    padding: 3%;
     margin-left: 2%;
+    box-shadow: 10px 10px;
+    border-radius: 7%;
 }
 
 .results-container {
@@ -44,4 +48,12 @@ main {
 #searchResults {
     /* border: 5px solid black; */
     flex-wrap: wrap;
+}
+
+#city {
+    color: white;
+}
+
+#wind-icon {
+    width: 15%;
 }
