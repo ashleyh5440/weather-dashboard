@@ -31,16 +31,11 @@ function displayPreviousSearch() {
     if(localStorage.getItem("cities")){
         cities = JSON.parse(localStorage.getItem("cities"));
         console.log(cities);
-        // var buttonEl = document.createElement("button");
-        // buttonEl.textContent = "Hello";
-        // var results = document.getElementById("searchHistoryList");
-        // results.append(buttonEl);
-        // console.log(cities);
 
         for (let i = 0; i < cities.length; i++){ //loops through the array
         var buttonEl = document.createElement("button");
         buttonEl.textContent = cities[i];
-        var results = document.getElementById("searchHistoryList");
+        // var results = document.getElementById("searchHistoryList");
         results.append(buttonEl);
         console.log(cities);
         }
